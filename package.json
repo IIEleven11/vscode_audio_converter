@@ -1,0 +1,70 @@
+{
+  "name": "audio-converter",
+  "displayName": "Audio Converter",
+  "description": "Convert audio files to WAV or MP3 with customizable settings",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "audioConverter.convertToWav",
+        "title": "Quick Convert to WAV (44.1kHz, Stereo, 16-bit)"
+      },
+      {
+        "command": "audioConverter.convertToMp3",
+        "title": "Quick Convert to MP3 (44.1kHz, Stereo, 320kbps)"
+      },
+      {
+        "command": "audioConverter.convertWithOptions",
+        "title": "Convert with Custom Settings..."
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "when": "resourceExtname =~ /\\.(mp3|wav|flac|aac|ogg|m4a|wma|aiff|au)$/i",
+          "submenu": "audioConverter.submenu",
+          "group": "audioConverter"
+        }
+      ],
+      "audioConverter.submenu": [
+        {
+          "command": "audioConverter.convertWithOptions"
+        },
+        {
+          "command": "audioConverter.convertToWav"
+        },
+        {
+          "command": "audioConverter.convertToMp3"
+        }
+      ]
+    },
+    "submenus": [
+      {
+        "id": "audioConverter.submenu",
+        "label": "Convert Audio"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0",
+    "@types/node": "16.x",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "fluent-ffmpeg": "^2.1.2",
+    "@types/fluent-ffmpeg": "^2.1.21"
+  }
+}
