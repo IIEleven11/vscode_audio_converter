@@ -9,6 +9,19 @@
   "categories": [
     "Other"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IIEleven11/vscode_audio_converter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/IIEleven11/vscode_audio_converter/issues"
+  },
+  "homepage": "https://github.com/IIEleven11/vscode_audio_converter#readme",
+  "author": {
+    "name": "IIEleven11"
+  },
+  "publisher": "IIEleven11",
+  "license": "MIT",
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
